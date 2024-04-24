@@ -8,12 +8,12 @@ public class project {
 
 	public static void main(String[] args) {
 		
-		int op=0;
-		while(op != 999) {
+		int op1=0;
+		while(op1 != 999) {
+			String  numTxt = JOptionPane.showInputDialog("MENU.\n 1: CADASTRAR FUNCIONÁRIO.\n 2: INFORMAÇÃO DO FUNCIONÁRIO.\n 3 DEMITIR FUNCIONÁRIO.\n 4: LISTA DE FUNCIONÁRIOS.\n 5: PROCURAR UM FUNCIONÁRIO.\n 6: ATUALIZAR CADASTRO DE FUNCIONÁRIO.\n 7: SELECIONAR FUNCIONÁRIO.\n 8: RETIRAR FUNCIONÁRIO DO MÊS.\n DIGITE O NUMERO DA OPÇÂO QUE DESEJÁ ");
+			Integer op = Integer.valueOf(numTxt);
 			
-			
-		
-		switch (op=999) {
+		switch (op) {
 		
 		case 1:
 			
