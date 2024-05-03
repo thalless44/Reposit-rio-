@@ -30,7 +30,7 @@ public class Funcionario {
 	}
 
 	public void setCPF(String CPF) {
-		CPF = CPF;
+		this.CPF = CPF;
 	}
 
 	public String getCargo() {

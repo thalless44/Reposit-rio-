@@ -43,6 +43,19 @@ public class project {
 			break;
 		case 2:
 			
+			ArrayList<Funcionario> Infofuncionarios = new ArrayList<>();
+			Funcionario Func = new Funcionario();
+			
+			ArrayList<String> NOME = new ArrayList<>();
+			String NOMES = JOptionPane.showInputDialog("Digite o nome do funcionario : ");
+			NOME.add(NOMES);
+			
+			ArrayList<String> CPF = new ArrayList<>();
+			String CPFS = JOptionPane.showInputDialog("O cpf deste Funcionario é :  ");
+			CPF.add(CPFS);
+			
+			
+			
 			
 		
 		
