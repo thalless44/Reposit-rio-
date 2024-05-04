@@ -42,7 +42,25 @@ public class project {
 
 			break;
 		case 2:
-			
+			String nomeExibir = JOptionPane.showInputDialog("Digite o nome do funcionário:");
+		    boolean funcionarioEncontrado = false;
+		    String infoFuncionario = "";
+		    
+		    for (Funcionario funcionario : funcionarios) {
+		        if (funcionario.getNome().equalsIgnoreCase(nomeExibir)) {
+		            infoFuncionario += "CPF: " + funcionario.getCPF() + "\n";
+		            infoFuncionario += "Cargo: " + funcionario.getCargo() + "\n";
+		            funcionarioEncontrado = true;
+		            break;
+		        }
+		    }
+		    
+		    if (funcionarioEncontrado) {
+		        JOptionPane.showMessageDialog(null, infoFuncionario, "Informações do Funcionário", JOptionPane.INFORMATION_MESSAGE);
+		    } else {
+		        JOptionPane.showMessageDialog(null, "Funcionário não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
+		    }
+
 	
 			
 			
@@ -87,30 +105,45 @@ public class project {
 			
 		
 		
-		    String nomeBuscar = JOptionPane.showInputDialog("Digite o nome do funcionário:");
+		    String nomeBuscar = JOptionPane.showInputDialog("Digite o nome do funcionario:");
 		    boolean funcionarioEncontrado = false;
-		    String infoFuncionario = "";
+		    String infoFuncionario1 = "";
 		    
 		    for (Funcionario funcionario : funcionarios) {
 		        if (funcionario.getNome().equalsIgnoreCase(nomeBuscar)) {
-		            infoFuncionario += "Nome: " + funcionario.getNome() + "\n";
-		            infoFuncionario += "CPF: " + funcionario.getCPF() + "\n";
-		            infoFuncionario += "Cargo: " + funcionario.getCargo() + "\n\n";
+		            infoFuncionario1 += "Nome: " + funcionario.getNome() + "\n";
+		            infoFuncionario1 += "CPF: " + funcionario.getCPF() + "\n";
+		            infoFuncionario1 += "Cargo: " + funcionario.getCargo() + "\n\n";
 		            funcionarioEncontrado = true;
 		            break;
 		        }
 		    }
 		    
 		    if (funcionarioEncontrado) {
-		        JOptionPane.showMessageDialog(null, infoFuncionario, "Informaçoes do Funcionario", JOptionPane.INFORMATION_MESSAGE);
+		        JOptionPane.showMessageDialog(null, infoFuncionario1, "Informaçoes do Funcionario", JOptionPane.INFORMATION_MESSAGE);
 		    } else {
-		        JOptionPane.showMessageDialog(null, "Funcionario não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
+		        JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
 		    }
 		    break;
 
 			
 			
 		case 5:
+			 String nomeProcurar = JOptionPane.showInputDialog("Digite o nome do funcionario que deseja encontrar:");
+			    boolean funcionarioEncontrado = false;
+			    
+			    for (Funcionario funcionario : funcionarios) {
+			        if (funcionario.getNome().equalsIgnoreCase(nomeProcurar)) {
+			            funcionarioEncontrado = true;
+			            break;
+			        }
+			    }
+			    
+			    if (funcionarioEncontrado) {
+			        JOptionPane.showMessageDialog(null, "Funcionario encontrado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+			    } else {
+			        JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
+			    }
 			
 			
 			break;
