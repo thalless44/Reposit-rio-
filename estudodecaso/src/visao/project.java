@@ -3,6 +3,7 @@ package visao;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+import controle.FuncionarioDao;
 import modelo.Funcionario;
 
 public class project {
@@ -34,6 +35,13 @@ public class project {
                     fun.setDataContratacao(data);
               
                     funcionarios.add(fun);
+                    
+                    Funcionario f = new Funcionario();
+                    f.setNome("jao");
+                    
+                    FuncionarioDao dao = new FuncionarioDao();
+                    dao.inserir(f);
+                    
                     break;
 
                 case 2:

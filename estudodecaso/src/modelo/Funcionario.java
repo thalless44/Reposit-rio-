@@ -1,12 +1,20 @@
 package modelo;
 
 public class Funcionario {
-
+    
 	private String nome;
 	private String CPF;
 	private String cargo;
 	private String dataContratacao;
+    private int ID;
 
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
 
 	public String getDataContratacao() {
 		return dataContratacao;
