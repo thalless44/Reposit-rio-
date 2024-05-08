@@ -9,7 +9,9 @@ import modelo.Funcionario;
 public class project {
 	static Funcionario funcionarioDoMes = null;
     public static void main(String[] args) {
-
+    FuncionarioDao dao = new FuncionarioDao(); //novo incremento
+    
+    
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
         int op1 = 0;
@@ -18,7 +20,12 @@ public class project {
             Integer op = Integer.valueOf(numTxt);
 
             switch (op) {
-
+            
+//   : 1- Linhas que pediam cod/ id
+            // 2 - tirar o ArrayList
+            
+            
+            
                 case 1:
                     Funcionario fun = new Funcionario();
 
@@ -38,9 +45,15 @@ public class project {
                     
                     Funcionario f = new Funcionario();
                     f.setNome("jao");
+                     
                     
-                    FuncionarioDao dao = new FuncionarioDao();
+                    //substituir o lista.add pela 
+                    
                     dao.inserir(f);
+                    
+                    for(Funcionario fun1 : dao.listar()) {
+                    	
+                    }
                     
                     break;
 
