@@ -1,7 +1,9 @@
-package casos;
+package visao;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
+import modelo.Funcionario;
 
 public class project {
 	static Funcionario funcionarioDoMes = null;

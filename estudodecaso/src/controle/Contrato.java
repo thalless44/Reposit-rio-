@@ -1,4 +1,4 @@
-package casos;
+package controle;
 
 public class Contrato {
 	

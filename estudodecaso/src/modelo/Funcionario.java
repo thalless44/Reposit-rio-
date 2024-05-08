@@ -1,4 +1,4 @@
-package casos;
+package modelo;
 
 public class Funcionario {
 
