@@ -47,7 +47,7 @@ public class project {
                     f.setNome("jao");
                      
                     
-                    //substituir o lista.add pela 
+                  
                     
                     dao.inserir(f);
                     
@@ -62,7 +62,7 @@ public class project {
                     boolean funcionarioEncontradoInfo = false;
                     String infoFuncionario = "";
 
-                    for (Funcionario funcionario : funcionarios) {
+                    for (Funcionario funcionario :  dao.listar()) {
                         if (funcionario.getNome().equalsIgnoreCase(nomeExibir)) {
                             infoFuncionario += "CPF: " + funcionario.getCPF() + "\n";
                             infoFuncionario += "Cargo: " + funcionario.getCargo() + "\n";
@@ -101,7 +101,7 @@ public class project {
 
                 case 4:
                     String infoFuncionarios = "";
-                    for (Funcionario funcionario : funcionarios) {
+                    for (Funcionario funcionario :  dao.listar()) {
                         infoFuncionarios += "Nome: " + funcionario.getNome() + "\n";
                        }
                     JOptionPane.showMessageDialog(null,infoFuncionarios);
@@ -130,7 +130,7 @@ public class project {
                     String nomeAtualizar = JOptionPane.showInputDialog("Digite o nome do funcionario que deseja atualizar:");
                     boolean funcionarioEncontradoAtualizar = false;
 
-                    for (Funcionario funcionario : funcionarios) {
+                    for (Funcionario funcionario :  dao.listar()) {
                         if (funcionario.getNome().equalsIgnoreCase(nomeAtualizar)) {
                             String novoCargo = JOptionPane.showInputDialog("Digite o novo cargo:");
                             funcionario.setCargo(novoCargo);
@@ -148,7 +148,7 @@ public class project {
 
                 case 7:
                     String nomeSelecionar = JOptionPane.showInputDialog("funcionario do mês:");
-                    for (Funcionario funcionario : funcionarios) {
+                    for (Funcionario funcionario :  dao.listar()) {
                         if (funcionario.getNome().equalsIgnoreCase(nomeSelecionar)) {
                             funcionarioDoMes = funcionario;
                             JOptionPane.showMessageDialog(null, "Funcionario do mes selecionado: " + funcionarioDoMes.getNome());
