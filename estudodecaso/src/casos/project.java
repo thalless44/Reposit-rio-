@@ -28,11 +28,9 @@ public class project {
                     String cargo = JOptionPane.showInputDialog("Digite o cargo do funcionario");
                     fun.setCargo(cargo);
 
-                    String dataContratacao = JOptionPane.showInputDialog("Digite a data do funcionario contratado");
-                    Contrato contrat = new Contrato();
-                    contrat.setDataContratacao(dataContratacao);
-                    fun.setcontrato(contrat);
-
+                    String data = JOptionPane.showInputDialog("Digite a data do funcionario contratado");
+                    fun.setDataContratacao(data);
+              
                     funcionarios.add(fun);
                     break;
 
@@ -45,15 +43,16 @@ public class project {
                         if (funcionario.getNome().equalsIgnoreCase(nomeExibir)) {
                             infoFuncionario += "CPF: " + funcionario.getCPF() + "\n";
                             infoFuncionario += "Cargo: " + funcionario.getCargo() + "\n";
+                            infoFuncionario += "Data de contratação: " + funcionario.getDataContratacao() + "\n--------------------------------\n";
                             funcionarioEncontradoInfo = true;
                             break;
                         }
                     }
 
                     if (funcionarioEncontradoInfo) {
-                        JOptionPane.showMessageDialog(null, infoFuncionario, "Informações do Funcionário",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, infoFuncionario);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Funcionário não encontrado.", "Aviso",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Funcionário não encontrado.");
                     }
 
                     break;
@@ -81,10 +80,8 @@ public class project {
                     String infoFuncionarios = "";
                     for (Funcionario funcionario : funcionarios) {
                         infoFuncionarios += "Nome: " + funcionario.getNome() + "\n";
-                        infoFuncionarios += "CPF: " + funcionario.getCPF() + "\n";
-                        infoFuncionarios += "Cargo: " + funcionario.getCargo() + "\n\n";
-                    }
-                    JOptionPane.showMessageDialog(null, infoFuncionarios, "Lista de Funcionários",JOptionPane.INFORMATION_MESSAGE);
+                       }
+                    JOptionPane.showMessageDialog(null,infoFuncionarios);
                     break;
 
                 case 5:
@@ -99,9 +96,9 @@ public class project {
                     }
 
                     if (funcionarioEncontradoProcurar) {
-                        JOptionPane.showMessageDialog(null, "Funcionario encontrado com sucesso.", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Funcionario encontrado com sucesso.");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.", "Aviso",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.");
                     }
 
                     break;
@@ -114,14 +111,14 @@ public class project {
                         if (funcionario.getNome().equalsIgnoreCase(nomeAtualizar)) {
                             String novoCargo = JOptionPane.showInputDialog("Digite o novo cargo:");
                             funcionario.setCargo(novoCargo);
-                            JOptionPane.showMessageDialog(null, "Cargo atualizado com sucesso.", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Cargo atualizado com sucesso.");
                             funcionarioEncontradoAtualizar = true;
                             break;
                         }
                     }
 
                     if (!funcionarioEncontradoAtualizar) {
-                        JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.", "Aviso",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.");
                     }
 
                     break;
@@ -131,7 +128,7 @@ public class project {
                     for (Funcionario funcionario : funcionarios) {
                         if (funcionario.getNome().equalsIgnoreCase(nomeSelecionar)) {
                             funcionarioDoMes = funcionario;
-                            JOptionPane.showMessageDialog(null, "Funcionario do mes selecionado: " + funcionarioDoMes.getNome(), "Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Funcionario do mes selecionado: " + funcionarioDoMes.getNome());
                             break;
                         }
                     }
@@ -139,14 +136,14 @@ public class project {
 
                 case 8:
                     funcionarioDoMes = null;
-                    JOptionPane.showMessageDialog(null, "Funcionario do mes removido com sucesso.", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Funcionario do mes removido com sucesso.");
                     break;
 
                 case 9:
                     if (funcionarioDoMes != null) {
-                        JOptionPane.showMessageDialog(null, "Funcionario do mes: " + funcionarioDoMes.getNome(), "Funcionário do Mês",JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Funcionario do mes: " + funcionarioDoMes.getNome());
                     } else {
-                        JOptionPane.showMessageDialog(null, "Nenhum funcionario do mes selecionado.", "Aviso",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Nenhum funcionario do mes selecionado.");
                     }
                     break;
 

@@ -5,16 +5,15 @@ public class Funcionario {
 	private String nome;
 	private String CPF;
 	private String cargo;
-	private Contrato contrato;
+	private String dataContratacao;
 
 
-
-	public Contrato getDataContratacao() {
-		return contrato;
+	public String getDataContratacao() {
+		return dataContratacao;
 	}
 
-	public void setcontrato(Contrato contrato) {
-		this.contrato = contrato;
+	public void setDataContratacao(String data) {
+		this.dataContratacao = data;
 	}
 
 	public String getNome() {
