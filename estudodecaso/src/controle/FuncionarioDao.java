@@ -58,6 +58,8 @@ public class FuncionarioDao {
 	}
 	
 	
+	//método atualizar
+	
 	
 
 }
