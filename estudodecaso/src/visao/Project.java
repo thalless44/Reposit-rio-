@@ -40,8 +40,6 @@ public class Project {
 
 				String data = JOptionPane.showInputDialog("Digite a data do funcionario contratado");
 				fun.setDataContratacao(data);
-
-				funcionarios.add(fun);
 				dao.inserir(fun);
 
 				break;
@@ -124,29 +122,15 @@ public class Project {
 				break;
 
 			case 6:
+				Funcionario funcionarioAtualizado = new Funcionario();
+				funcionarioAtualizado.setID(0); 
+				funcionarioAtualizado.setCargo("Novo Cargo");
 
-				exibeCadastros = "";
-				for (Funcionario funcionario : dao.listar()) {
-					exibeCadastros += funcionario.getID() + " - " + funcionario.getNome() + "\n";
-				}
-
-				id = JOptionPane.showInputDialog(exibeCadastros + "\nDigite o ID do funcionario que deseja atualizar:");
-				idBuscar = Integer.valueOf(id);
-
-				boolean funcionarioEncontradoAtualizar = false;
-
-				for (Funcionario funcionario : dao.listar()) {
-					if (funcionario.getID() == idBuscar) {
-						String novoCargo = JOptionPane.showInputDialog("Digite o novo cargo:");
-						funcionario.setCargo(novoCargo);
-						JOptionPane.showMessageDialog(null, "Cargo atualizado com sucesso.");
-						funcionarioEncontradoAtualizar = true;
-						break;
-					}
-				}
-
-				if (!funcionarioEncontradoAtualizar) {
-					JOptionPane.showMessageDialog(null, "Funcionario nao encontrado.");
+				boolean atualizado = dao.atualizar(funcionarioAtualizado);
+				if (atualizado) {
+					JOptionPane.showInputDialog("Funcionário atualizado com sucesso.");
+				} else {
+					JOptionPane.showInputDialog("Não foi possível atualizar o funcionário. Funcionário não encontrado.");
 				}
 
 				break;

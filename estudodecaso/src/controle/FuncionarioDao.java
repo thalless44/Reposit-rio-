@@ -57,9 +57,16 @@ public class FuncionarioDao {
 		return verifica;
 	}
 	
-	
 	//método atualizar
+	public boolean atualizar(Funcionario funcionarioAtualizado) {
+    for (int i = 0; i < GerenFun.size(); i++) {
+        Funcionario funcionario = GerenFun.get(i);
+        if (funcionario.getID() == funcionarioAtualizado.getID()) {
+            GerenFun.set(i, funcionarioAtualizado);
+            return true; 
+        }
+    }
+    return false; 
+}
 	
-	
-
 }
