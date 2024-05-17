@@ -1,6 +1,5 @@
 package visao;
 
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import controle.FuncionarioDao;
@@ -13,7 +12,6 @@ public class Project {
 
 		FuncionarioDao dao = FuncionarioDao.getInstancia(); // novo incremento
 
-		ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
 		int op1 = 0;
 		while (op1 != 999) {
@@ -72,26 +70,16 @@ public class Project {
 				for (Funcionario funcionario : dao.listar()) {
 					exibeCadastros += funcionario.getID() + " - " + funcionario.getNome() + "\n";
 				}
-
-				String id = JOptionPane.showInputDialog(exibeCadastros + "\nDigite o nome do funcionario a demitir:");
-				Integer idBuscar = Integer.valueOf(id);
-				boolean funcionarioEncontradoDemitir = false;
-
-				for (int i = 0; i < funcionarios.size(); i++) {
-					Funcionario funcionario = funcionarios.get(i);
-
-					if (funcionario.getID() == idBuscar) {
-						funcionarios.remove(i);
-						JOptionPane.showMessageDialog(null, "Funcionario demitido com sucesso.");
-						funcionarioEncontradoDemitir = true;
-						break;
-					}
-				}
-
-				if (!funcionarioEncontradoDemitir) {
-					JOptionPane.showMessageDialog(null, "Funcionario não encontrado.");
-				}
-				break;
+				 String idExcluirString = JOptionPane.showInputDialog(exibeCadastros +"Digite o ID do funcionário que deseja excluir:");
+				    int idExcluir = Integer.parseInt(idExcluirString);
+				    
+				    Funcionario excluido = dao.excluirPorId(idExcluir);
+				    if (excluido != null) {
+				        JOptionPane.showMessageDialog(null, "Funcionário removido com sucesso.");
+				    } else {
+				        JOptionPane.showMessageDialog(null, "Não foi possível remover o funcionário.");
+				    }
+				    break;
 
 			case 4:
 				String infoFuncionarios = "";
@@ -121,22 +109,36 @@ public class Project {
 
 				break;
 
+
 			case 6:
-				Funcionario funcionarioAtualizado = new Funcionario();
-				funcionarioAtualizado.setID(0); 
-				funcionarioAtualizado.setCargo("Novo Cargo");
-
-				boolean atualizado = dao.atualizar(funcionarioAtualizado);
-				if (atualizado) {
-					JOptionPane.showInputDialog("Funcionário atualizado com sucesso.");
-				} else {
-					JOptionPane.showInputDialog("Não foi possível atualizar o funcionário. Funcionário não encontrado.");
+				exibeCadastros = "";
+				for (Funcionario funcionario : dao.listar()) {
+					exibeCadastros += funcionario.getID() + " - " + funcionario.getNome() + "\n";
 				}
-
-				break;
+			    String idString = JOptionPane.showInputDialog(exibeCadastros +"Digite o ID do funcionário que deseja atualizar o cargo:");
+			    int idAtualizar = Integer.parseInt(idString);
+			    
+			    Funcionario funcionarioParaAtualizar = dao.buscarPorId(idAtualizar);
+			    if (funcionarioParaAtualizar != null) {
+			        String novoCargo = JOptionPane.showInputDialog("Digite o novo cargo:");
+			        funcionarioParaAtualizar.setCargo(novoCargo);
+			        boolean atualizado = dao.atualizarCargo(funcionarioParaAtualizar);
+			        if (atualizado) {
+			            JOptionPane.showMessageDialog(null, "Cargo do funcionário atualizado com sucesso.");
+			        } else {
+			            JOptionPane.showMessageDialog(null, "Erro ao atualizar o cargo do funcionário.");
+			        }
+			    } else {
+			        JOptionPane.showMessageDialog(null, "Funcionário com o ID fornecido não encontrado.");
+			    }
+			    break;
 
 			case 7:
-				String nomeSelecionar = JOptionPane.showInputDialog("funcionario do mês:");
+				exibeCadastros = "";
+				for (Funcionario funcionario : dao.listar()) {
+					exibeCadastros += funcionario.getID() + " - " + funcionario.getNome() + "\n";
+				}
+				String nomeSelecionar = JOptionPane.showInputDialog(exibeCadastros +"funcionario do mês:");
 				for (Funcionario funcionario : dao.listar()) {
 					if (funcionario.getNome().equalsIgnoreCase(nomeSelecionar)) {
 						funcionarioDoMes = funcionario;

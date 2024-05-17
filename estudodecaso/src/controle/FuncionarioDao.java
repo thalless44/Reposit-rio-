@@ -52,21 +52,27 @@ public class FuncionarioDao {
 		return null;
 	}
 	// Método de excluir
-	public boolean remover(Funcionario funcionario) {
-		boolean verifica = GerenFun.remove(funcionario);
+	public Funcionario excluirPorId(int idExcluir) {
+		Funcionario verifica = GerenFun.remove(idExcluir);
 		return verifica;
 	}
 	
 	//método atualizar
-	public boolean atualizar(Funcionario funcionarioAtualizado) {
-    for (int i = 0; i < GerenFun.size(); i++) {
-        Funcionario funcionario = GerenFun.get(i);
-        if (funcionario.getID() == funcionarioAtualizado.getID()) {
-            GerenFun.set(i, funcionarioAtualizado);
-            return true; 
-        }
-    }
-    return false; 
-}
+	public boolean atualizarCargo(Funcionario funcionarioAtualizado) {
+	    for (int i = 0; i < GerenFun.size(); i++) {
+	        Funcionario funcionario = GerenFun.get(i);
+	        if (funcionario.getID() == funcionarioAtualizado.getID()) {
+	            funcionario.setCargo(funcionarioAtualizado.getCargo());
+	            GerenFun.set(i, funcionario);
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
 	
 }
+
+
+
+
